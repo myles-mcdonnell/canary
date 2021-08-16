@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+  g2r-api:
+    build: ../
+    environment:
+      APP_DB_HOST: "db"
+    ports:
+      - 8130:8080
+      - 8131:8081
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:4.4
+    restart: always
+    ports:
+      - 27017:27017
